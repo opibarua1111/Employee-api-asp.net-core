@@ -81,7 +81,8 @@ namespace Employee_Info.api.Controllers
             }
             
         }
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("{id:guid}")]
         public async Task<ActionResult> GetEmployee([FromRoute] Guid id)
         {
             try
@@ -98,8 +99,9 @@ namespace Employee_Info.api.Controllers
             }
             
         }
-        [HttpPost("editEmployee/{id}")]
-        public async Task<ActionResult> UpdateEmployee([FromRoute] Guid id, [FromForm] AddEmployeeRequest updateEmployeeRequest)
+        [HttpPost]
+        [Route("{id:guid}")]
+        public async Task<ActionResult> UpdateEmployee([FromRoute] Guid id, [FromBody] AddEmployeeRequest updateEmployeeRequest)
         {
             try
             {
